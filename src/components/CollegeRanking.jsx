@@ -7,7 +7,7 @@ import {
   Award,
   GraduationCap,
   University,
-  Flask,
+  FlaskConical,
   Microscope,
   Leaf,
 } from "lucide-react";
@@ -38,7 +38,7 @@ const CollegeRanking = () => {
       case "Overall":
         return GraduationCap;
       case "Science":
-        return Flask;
+        return FlaskConical;
       case "Research":
         return Microscope;
       default:
