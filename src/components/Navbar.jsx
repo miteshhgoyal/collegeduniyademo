@@ -45,7 +45,7 @@ const Navbar = () => {
                   </span>
                 </div>
                 <span className="text-white font-bold text-lg sm:text-xl lg:text-2xl">
-                  collegedunia
+                  Colleges Info
                 </span>
               </div>
 

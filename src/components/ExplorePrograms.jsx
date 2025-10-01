@@ -45,7 +45,7 @@ const ExplorePrograms = () => {
       iconColor: "text-orange-600",
       illustration: "📊",
       stats: [
-        { name: "Collegedunia", value: "2612" },
+        { name: "Colleges Info", value: "2612" },
         { name: "Indiatoday", value: "1810" },
         { name: "IIRF", value: "1778" },
         { name: "Outlook", value: "1357" },

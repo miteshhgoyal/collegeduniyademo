@@ -3,13 +3,13 @@ import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 
 const CollegeRanking = () => {
   const [selectedYear, setSelectedYear] = useState("2025");
-  const [selectedAgency, setSelectedAgency] = useState("Collegedunia");
+  const [selectedAgency, setSelectedAgency] = useState("Colleges");
   const [showYearDropdown, setShowYearDropdown] = useState(false);
   const agencyScrollRef = useRef(null);
 
   const years = ["2025", "2024", "2023", "2022", "2021"];
   const agencies = [
-    "Collegedunia",
+    "Colleges",
     "Indiatoday",
     "The Week",
     "NIRF",
@@ -19,7 +19,7 @@ const CollegeRanking = () => {
   ];
 
   const collegeData = {
-    Collegedunia: [
+    Colleges: [
       {
         id: 1,
         name: "Sam Higginbottom University of Agriculture Technology and Sciences - [SHUATS]",
@@ -120,7 +120,7 @@ const CollegeRanking = () => {
   };
 
   const currentColleges =
-    collegeData[selectedAgency] || collegeData["Collegedunia"];
+    collegeData[selectedAgency] || collegeData["Colleges"];
 
   return (
     <div className="w-full bg-white py-8 px-4">
