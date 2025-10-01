@@ -11,6 +11,7 @@ import {
   Edit3,
   Home,
   X,
+  GraduationCap,
 } from "lucide-react";
 
 const Navbar = () => {
@@ -33,19 +34,17 @@ const Navbar = () => {
     <div className="w-full bg-black shadow-xl">
       {/* Main Navigation Bar */}
       <div className="w-full border-b border-gray-800">
-        <div className="max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-6">
-          <div className="flex items-center justify-between h-14 sm:h-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Left Section: Logo + Selectors */}
-            <div className="flex items-center space-x-3 lg:space-x-6">
+            <div className="flex items-center space-x-4 lg:space-x-6">
               {/* Logo */}
               <div className="flex items-center space-x-2 flex-shrink-0">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center shadow-md">
-                  <span className="text-orange-600 font-bold text-sm sm:text-base">
-                    📚
-                  </span>
+                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md">
+                  <GraduationCap size={18} className="text-orange-600" />
                 </div>
-                <span className="text-white font-bold text-lg sm:text-xl lg:text-2xl">
-                  Colleges Info
+                <span className="text-white font-bold text-xl lg:text-2xl">
+                  collegedunia
                 </span>
               </div>
 
@@ -78,24 +77,24 @@ const Navbar = () => {
             </div>
 
             {/* Center Section: Search Bar */}
-            <div className="hidden md:flex flex-1 max-w-md lg:max-w-lg xl:max-w-xl mx-4 lg:mx-8">
+            <div className="hidden md:flex flex-1 max-w-2xl mx-8">
               <div className="relative w-full group">
                 <Search
-                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-orange-500 transition-colors"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-orange-500 transition-colors"
                   size={18}
                 />
                 <input
                   type="text"
                   placeholder="Search for Colleges, Exams, Courses and More."
-                  className="w-full pl-11 pr-4 py-2.5 lg:py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-700 placeholder-gray-500 text-sm lg:text-base shadow-sm hover:shadow-md transition-all duration-200"
+                  className="w-full pl-12 pr-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-700 placeholder-gray-500 text-base shadow-sm hover:shadow-md transition-all duration-200"
                 />
               </div>
             </div>
 
             {/* Right Section: Actions */}
-            <div className="flex items-center space-x-2 lg:space-x-3">
+            <div className="flex items-center space-x-3">
               {/* Write Review Button - Desktop */}
-              <button className="hidden lg:flex items-center bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-3 xl:px-4 py-2.5 rounded-lg font-medium text-sm shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105">
+              <button className="hidden lg:flex items-center bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-2.5 rounded-lg font-medium text-sm shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105">
                 <Edit3 size={14} className="mr-2" />
                 <div className="flex flex-col items-start leading-tight">
                   <span className="whitespace-nowrap">Write a Review</span>
@@ -106,7 +105,7 @@ const Navbar = () => {
               </button>
 
               {/* Explore - Desktop */}
-              <button className="hidden lg:flex items-center space-x-1 text-white hover:text-orange-400 px-2 py-2 rounded-lg hover:bg-gray-800 transition-all duration-200 group">
+              <button className="hidden lg:flex items-center space-x-1 text-white hover:text-orange-400 px-3 py-2 rounded-lg hover:bg-gray-800 transition-all duration-200 group">
                 <Grid3X3
                   size={18}
                   className="group-hover:scale-110 transition-transform"
@@ -137,16 +136,14 @@ const Navbar = () => {
               </button>
 
               {/* Profile Avatar */}
-              <div className="w-8 h-8 lg:w-9 lg:h-9 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-200 shadow-md ring-2 ring-orange-300 ring-opacity-50">
-                <span className="text-white font-bold text-sm lg:text-base">
-                  M
-                </span>
+              <div className="w-9 h-9 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-all duration-200 shadow-md ring-2 ring-orange-300 ring-opacity-50">
+                <span className="text-white font-bold text-base">M</span>
               </div>
             </div>
           </div>
 
           {/* Mobile Search Bar */}
-          <div className="md:hidden pb-3">
+          <div className="md:hidden pb-4">
             <div className="relative group">
               <Search
                 className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-orange-500 transition-colors"
@@ -155,20 +152,20 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search for Colleges, Exams, Courses..."
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-700 placeholder-gray-500 text-sm shadow-sm"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-700 placeholder-gray-500 text-sm shadow-sm"
               />
             </div>
           </div>
 
           {/* Mobile Goal/City Selectors */}
-          <div className="xl:hidden pb-3 flex items-center justify-center space-x-4">
-            <div className="flex items-center space-x-1 text-orange-400 cursor-pointer text-sm">
+          <div className="xl:hidden pb-4 flex items-center justify-center space-x-4">
+            <div className="flex items-center space-x-1 text-orange-400 cursor-pointer text-sm hover:text-orange-300 transition-colors">
               <Target size={14} />
               <span>Select Goal</span>
               <ChevronDown size={12} />
             </div>
             <div className="w-px h-4 bg-gray-600"></div>
-            <div className="flex items-center space-x-1 text-orange-400 cursor-pointer text-sm">
+            <div className="flex items-center space-x-1 text-orange-400 cursor-pointer text-sm hover:text-orange-300 transition-colors">
               <MapPin size={14} />
               <span>Select City</span>
               <ChevronDown size={12} />
@@ -179,11 +176,11 @@ const Navbar = () => {
 
       {/* Course Navigation */}
       <div className="w-full bg-gradient-to-r from-gray-900 to-black">
-        <div className="max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-6 py-2.5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center justify-between">
             {/* Course Links */}
-            <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6 overflow-x-auto scrollbar-hide">
-              <button className="flex items-center space-x-1 text-white hover:text-orange-400 whitespace-nowrap transition-all duration-200 group flex-shrink-0">
+            <div className="flex items-center space-x-6 overflow-x-auto scrollbar-hide">
+              <button className="flex items-center space-x-2 text-white hover:text-orange-400 whitespace-nowrap transition-all duration-200 group flex-shrink-0">
                 <Home
                   size={16}
                   className="group-hover:scale-110 transition-transform"
@@ -194,7 +191,7 @@ const Navbar = () => {
               {courses.map((course, index) => (
                 <button
                   key={index}
-                  className="text-gray-300 hover:text-white hover:bg-gray-800 px-2 py-1 rounded-md text-sm whitespace-nowrap transition-all duration-200 flex-shrink-0"
+                  className="text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-1.5 rounded-md text-sm whitespace-nowrap transition-all duration-200 flex-shrink-0"
                 >
                   {course}
                 </button>
@@ -232,23 +229,41 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Items */}
-          <button className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-200">
-            <Edit3 size={16} />
-            <span>Write a Review</span>
-          </button>
+          <div className="space-y-3">
+            <button className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-200">
+              <Edit3 size={16} />
+              <span>Write a Review</span>
+            </button>
 
-          <button className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-200">
-            <Star size={16} />
-            <span>Course Finder</span>
-            <span className="bg-red-500 text-xs px-2 py-1 rounded-full font-bold">
-              NEW
-            </span>
-          </button>
+            <button className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-200">
+              <Star size={16} />
+              <span>Course Finder</span>
+              <span className="bg-red-500 text-xs px-2 py-1 rounded-full font-bold">
+                NEW
+              </span>
+            </button>
 
-          <button className="w-full flex items-center justify-center space-x-2 text-white hover:bg-gray-800 px-4 py-3 rounded-lg transition-colors">
-            <Grid3X3 size={16} />
-            <span>Explore</span>
-          </button>
+            <button className="w-full flex items-center justify-center space-x-2 text-white hover:bg-gray-800 px-4 py-3 rounded-lg transition-colors">
+              <Grid3X3 size={16} />
+              <span>Explore</span>
+            </button>
+
+            {/* Mobile Goal/City Selectors */}
+            <div className="pt-4 border-t border-gray-700">
+              <div className="space-y-3">
+                <button className="w-full flex items-center justify-center space-x-2 text-orange-400 hover:bg-gray-800 px-4 py-3 rounded-lg transition-colors">
+                  <Target size={16} />
+                  <span>Select Goal</span>
+                  <ChevronDown size={14} />
+                </button>
+                <button className="w-full flex items-center justify-center space-x-2 text-orange-400 hover:bg-gray-800 px-4 py-3 rounded-lg transition-colors">
+                  <MapPin size={16} />
+                  <span>Select City</span>
+                  <ChevronDown size={14} />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -260,7 +275,7 @@ const Navbar = () => {
         ></div>
       )}
 
-      {/* Add custom scrollbar hiding */}
+      {/* Custom scrollbar hiding */}
       <style jsx global>{`
         .scrollbar-hide {
           -ms-overflow-style: none;

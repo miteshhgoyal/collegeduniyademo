@@ -3,10 +3,12 @@ import {
   ChevronLeft,
   ChevronRight,
   Building2,
-  GraduationCap,
-  Clock,
   MapPin,
+  Clock,
   Users,
+  GraduationCap,
+  Banknote,
+  BookOpen,
 } from "lucide-react";
 
 const TopStudyPlaces = () => {
@@ -16,58 +18,58 @@ const TopStudyPlaces = () => {
     {
       id: 1,
       name: "Delhi NCR",
-      icon: "🏛️",
       color: "bg-blue-50",
       iconBg: "bg-blue-100",
       iconColor: "text-blue-600",
+      colleges: "450+ Colleges",
     },
     {
       id: 2,
       name: "Bangalore",
-      icon: "🌆",
       color: "bg-green-50",
       iconBg: "bg-green-100",
       iconColor: "text-green-600",
+      colleges: "320+ Colleges",
     },
     {
       id: 3,
       name: "Hyderabad",
-      icon: "🏢",
       color: "bg-purple-50",
       iconBg: "bg-purple-100",
       iconColor: "text-purple-600",
+      colleges: "280+ Colleges",
     },
     {
       id: 4,
       name: "Pune",
-      icon: "🌇",
       color: "bg-orange-50",
       iconBg: "bg-orange-100",
       iconColor: "text-orange-600",
+      colleges: "250+ Colleges",
     },
     {
       id: 5,
       name: "Mumbai",
-      icon: "🏙️",
       color: "bg-cyan-50",
       iconBg: "bg-cyan-100",
       iconColor: "text-cyan-600",
+      colleges: "380+ Colleges",
     },
     {
       id: 6,
       name: "Chennai",
-      icon: "🌴",
       color: "bg-teal-50",
       iconBg: "bg-teal-100",
       iconColor: "text-teal-600",
+      colleges: "290+ Colleges",
     },
     {
       id: 7,
       name: "Kolkata",
-      icon: "🎭",
       color: "bg-pink-50",
       iconBg: "bg-pink-100",
       iconColor: "text-pink-600",
+      colleges: "220+ Colleges",
     },
   ];
 
@@ -83,15 +85,20 @@ const TopStudyPlaces = () => {
   };
 
   return (
-    <div className="w-full bg-white py-8 px-4">
+    <div className="w-full bg-white py-8 md:py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-            Top Study Places
-          </h2>
+        <div className="flex items-center justify-between mb-6 md:mb-8">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
+              Top Study Places
+            </h2>
+            <p className="text-gray-600 text-sm md:text-base">
+              Explore the best educational destinations across India
+            </p>
+          </div>
           <button
             onClick={() => scroll("right")}
-            className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 transition-all duration-200"
+            className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 transition-all duration-200 hidden md:flex"
           >
             <ChevronRight size={20} />
           </button>
@@ -99,28 +106,34 @@ const TopStudyPlaces = () => {
 
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto scrollbar-hide pb-2"
+          className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide pb-2"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {studyPlaces.map((place) => (
             <div
               key={place.id}
               className={`
-                flex-shrink-0 w-48 h-32 ${place.color} rounded-xl border border-gray-200 
-                cursor-pointer hover:shadow-lg hover:border-gray-300 transition-all duration-200
-                flex flex-col items-center justify-center text-center p-4
+                flex-shrink-0 w-44 md:w-52 h-32 md:h-36 ${place.color} rounded-xl border border-gray-200 
+                cursor-pointer hover:shadow-lg hover:border-gray-300 transition-all duration-300 transform hover:scale-105
+                flex flex-col items-center justify-center text-center p-4 group
               `}
             >
               <div
-                className={`w-12 h-12 ${place.iconBg} rounded-lg flex items-center justify-center mb-2`}
+                className={`w-10 h-10 md:w-12 md:h-12 ${place.iconBg} rounded-lg flex items-center justify-center mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300`}
               >
-                <Building2 size={24} className={place.iconColor} />
+                <MapPin size={20} className={place.iconColor} />
               </div>
-              <h3 className="font-bold text-gray-800 text-base">
+              <h3 className="font-bold text-gray-800 text-sm md:text-base mb-1">
                 {place.name}
               </h3>
+              <p className="text-xs text-gray-600">{place.colleges}</p>
             </div>
           ))}
+        </div>
+
+        {/* Mobile scroll indicator */}
+        <div className="md:hidden mt-4 text-center">
+          <p className="text-xs text-gray-500">← Scroll to see more cities →</p>
         </div>
       </div>
 
@@ -288,13 +301,16 @@ const ExploreCourses = () => {
   const currentCourses = courseData[activeLevel] || [];
 
   return (
-    <div className="w-full bg-white py-8 px-4">
+    <div className="w-full bg-white py-8 md:py-12 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+        <div className="mb-6 md:mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
             Explore Courses
           </h2>
+          <p className="text-gray-600 text-sm md:text-base mb-4 md:mb-6">
+            Find the perfect course for your career goals
+          </p>
 
           {/* Level Tabs */}
           <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
@@ -303,7 +319,7 @@ const ExploreCourses = () => {
                 key={level}
                 onClick={() => setActiveLevel(level)}
                 className={`
-                  flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+                  flex-shrink-0 px-3 md:px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
                   ${
                     activeLevel === level
                       ? "bg-gray-800 text-white shadow-md"
@@ -328,49 +344,60 @@ const ExploreCourses = () => {
 
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide py-2 md:px-12"
+            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide py-2 md:px-12"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {currentCourses.map((course) => (
               <div
                 key={course.id}
-                className="flex-shrink-0 w-80 bg-gray-50 rounded-xl border border-gray-200 p-6 hover:shadow-lg hover:border-gray-300 transition-all duration-200 cursor-pointer"
+                className="flex-shrink-0 w-72 md:w-80 bg-gray-50 rounded-xl border border-gray-200 p-4 md:p-6 hover:shadow-lg hover:border-gray-300 transition-all duration-300 cursor-pointer transform hover:scale-105"
               >
                 <div className="mb-4">
-                  <span className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-xs font-medium rounded-full mb-3">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full mb-3">
+                    <Clock size={12} />
                     {course.type}
                   </span>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
                     {course.name}
                   </h3>
                 </div>
 
                 <div className="space-y-3 mb-6">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600 text-sm">Duration</span>
+                  <div className="flex justify-between items-center p-2 bg-white rounded-lg">
+                    <div className="flex items-center gap-2">
+                      <Clock size={14} className="text-gray-500" />
+                      <span className="text-gray-600 text-sm">Duration</span>
+                    </div>
                     <span className="font-semibold text-gray-800">
                       {course.duration}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600 text-sm">
-                      Total Avg. Fees
-                    </span>
+
+                  <div className="flex justify-between items-center p-2 bg-white rounded-lg">
+                    <div className="flex items-center gap-2">
+                      <Banknote size={14} className="text-gray-500" />
+                      <span className="text-gray-600 text-sm">Avg. Fees</span>
+                    </div>
                     <span className="font-semibold text-gray-800">
-                      {course.avgFees}
+                      ₹{course.avgFees}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600 text-sm">Colleges</span>
+
+                  <div className="flex justify-between items-center p-2 bg-white rounded-lg">
+                    <div className="flex items-center gap-2">
+                      <Building2 size={14} className="text-gray-500" />
+                      <span className="text-gray-600 text-sm">Colleges</span>
+                    </div>
                     <span className="font-semibold text-gray-800">
                       {course.colleges}
                     </span>
                   </div>
                 </div>
 
-                <button className="flex items-center text-gray-700 hover:text-gray-900 font-medium text-sm transition-colors">
+                <button className="flex items-center justify-center w-full gap-2 text-gray-700 hover:text-white hover:bg-gray-800 font-medium text-sm py-2 px-4 rounded-lg transition-all duration-300 border border-gray-300 hover:border-gray-800">
+                  <BookOpen size={16} />
                   <span>Course Overview</span>
-                  <ChevronRight size={16} className="ml-1" />
+                  <ChevronRight size={16} />
                 </button>
               </div>
             ))}
@@ -382,6 +409,13 @@ const ExploreCourses = () => {
           >
             <ChevronRight size={20} />
           </button>
+        </div>
+
+        {/* Mobile scroll indicator */}
+        <div className="md:hidden mt-4 text-center">
+          <p className="text-xs text-gray-500">
+            ← Scroll to see more courses →
+          </p>
         </div>
       </div>
 

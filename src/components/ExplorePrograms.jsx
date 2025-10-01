@@ -14,6 +14,11 @@ import {
   Calendar,
   TrendingUp,
   ArrowRight,
+  Award,
+  User,
+  FileText,
+  Target,
+  BarChart,
 } from "lucide-react";
 
 const ExplorePrograms = () => {
@@ -43,9 +48,9 @@ const ExplorePrograms = () => {
       color: "bg-orange-50",
       iconBg: "bg-orange-100",
       iconColor: "text-orange-600",
-      illustration: "📊",
+      illustration: BarChart,
       stats: [
-        { name: "Colleges Info", value: "2612" },
+        { name: "Collegedunia", value: "2612" },
         { name: "Indiatoday", value: "1810" },
         { name: "IIRF", value: "1778" },
         { name: "Outlook", value: "1357" },
@@ -61,7 +66,7 @@ const ExplorePrograms = () => {
       color: "bg-blue-50",
       iconBg: "bg-blue-100",
       iconColor: "text-blue-600",
-      illustration: "🏛️",
+      illustration: Building2,
       options: ["Best MBA colleges in India", "Best BTech colleges in India"],
       link: "Discover Top Colleges in India",
       linkIcon: ArrowRight,
@@ -74,7 +79,7 @@ const ExplorePrograms = () => {
       color: "bg-green-50",
       iconBg: "bg-green-100",
       iconColor: "text-green-600",
-      illustration: "👨‍🎓",
+      illustration: User,
       comparisons: [
         {
           name1: "IIT Madras",
@@ -100,7 +105,7 @@ const ExplorePrograms = () => {
       color: "bg-purple-50",
       iconBg: "bg-purple-100",
       iconColor: "text-purple-600",
-      illustration: "📝",
+      illustration: FileText,
       examTypes: [
         "B.Com",
         "B.Sc",
@@ -121,7 +126,7 @@ const ExplorePrograms = () => {
       color: "bg-cyan-50",
       iconBg: "bg-cyan-100",
       iconColor: "text-cyan-600",
-      illustration: "🎓",
+      illustration: Target,
       predictorTypes: [
         "CUET",
         "NEET",
@@ -139,7 +144,7 @@ const ExplorePrograms = () => {
       color: "bg-yellow-50",
       iconBg: "bg-yellow-100",
       iconColor: "text-yellow-600",
-      illustration: "🔍",
+      illustration: Search,
       courseStats: [
         { name: "BE/B.Tech", count: "950" },
         { name: "MBA/PGDM", count: "1106" },
@@ -163,11 +168,11 @@ const ExplorePrograms = () => {
   };
 
   return (
-    <div className="w-full bg-white py-12 px-4">
+    <div className="w-full bg-white py-8 md:py-12 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+        <div className="mb-6 md:mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 md:mb-6">
             Explore Programs
           </h2>
 
@@ -175,7 +180,7 @@ const ExplorePrograms = () => {
           <div className="relative">
             <div
               ref={scrollRef}
-              className="flex gap-3 overflow-x-auto scrollbar-hide pb-2"
+              className="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide pb-2"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {filters.map((filter) => (
@@ -183,7 +188,7 @@ const ExplorePrograms = () => {
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
                   className={`
-                    flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+                    flex-shrink-0 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-200
                     ${
                       activeFilter === filter
                         ? "bg-gray-800 text-white shadow-md"
@@ -199,7 +204,7 @@ const ExplorePrograms = () => {
             {/* Arrow for filter scroll */}
             <button
               onClick={() => scroll("right")}
-              className="absolute right-0 top-0 w-8 h-8 bg-white shadow-md border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800"
+              className="absolute right-0 top-0 w-8 h-8 bg-white shadow-md border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 transition-all duration-200 hidden md:flex"
             >
               <ChevronRight size={16} />
             </button>
@@ -207,49 +212,57 @@ const ExplorePrograms = () => {
         </div>
 
         {/* Program Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {programCards.map((card) => {
             const IconComponent = card.icon;
+            const IllustrationComponent = card.illustration;
 
             return (
               <div
                 key={card.id}
                 className={`
-                  ${card.color} rounded-xl border border-gray-200 p-6 
+                  ${card.color} rounded-xl border border-gray-200 p-4 md:p-6 
                   hover:shadow-lg hover:border-gray-300 transition-all duration-200 cursor-pointer
                 `}
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div
-                    className={`w-12 h-12 ${card.iconBg} rounded-lg flex items-center justify-center`}
+                    className={`w-10 h-10 md:w-12 md:h-12 ${card.iconBg} rounded-lg flex items-center justify-center`}
                   >
-                    <IconComponent size={24} className={card.iconColor} />
+                    <IconComponent size={20} className={card.iconColor} />
                   </div>
-                  <div className="text-3xl">{card.illustration}</div>
+                  <div
+                    className={`w-8 h-8 md:w-10 md:h-10 bg-white/50 rounded-lg flex items-center justify-center`}
+                  >
+                    <IllustrationComponent
+                      size={16}
+                      className="text-gray-600"
+                    />
+                  </div>
                 </div>
 
                 {/* Title and Subtitle */}
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-gray-800 mb-1">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-1">
                     {card.title}
                   </h3>
                   <p className="text-gray-600 text-sm">{card.subtitle}</p>
                 </div>
 
                 {/* Dynamic Content based on card type */}
-                <div className="mb-4 min-h-[120px]">
+                <div className="mb-4 min-h-[100px] md:min-h-[120px]">
                   {/* Ranking Stats */}
                   {card.stats && (
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 gap-2">
                       {card.stats.map((stat, index) => (
                         <div
                           key={index}
-                          className="flex items-center justify-between text-sm"
+                          className="flex items-center justify-between text-sm p-2 bg-white/60 rounded-lg"
                         >
                           <span className="text-gray-600">{stat.name}</span>
                           <span className="font-semibold text-gray-800">
-                            - {stat.value}
+                            {stat.value}
                           </span>
                         </div>
                       ))}
@@ -262,7 +275,7 @@ const ExplorePrograms = () => {
                       {card.options.map((option, index) => (
                         <div
                           key={index}
-                          className="text-sm text-gray-700 font-medium"
+                          className="text-sm text-gray-700 font-medium p-2 bg-white/60 rounded-lg"
                         >
                           {option}
                         </div>
@@ -276,31 +289,31 @@ const ExplorePrograms = () => {
                       {card.comparisons.map((comp, index) => (
                         <div
                           key={index}
-                          className="flex items-center gap-2 text-xs"
+                          className="flex items-center gap-2 text-xs p-2 bg-white/60 rounded-lg"
                         >
-                          <div className="flex items-center gap-1">
+                          <div className="flex items-center gap-1 flex-1">
                             <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center">
-                              😊
+                              <User size={12} className="text-orange-600" />
                             </div>
-                            <div>
-                              <div className="font-medium text-gray-800">
+                            <div className="min-w-0">
+                              <div className="font-medium text-gray-800 text-xs truncate">
                                 {comp.name1}
                               </div>
-                              <div className="text-blue-500">
+                              <div className="text-blue-500 text-xs">
                                 {comp.course1}
                               </div>
                             </div>
                           </div>
-                          <div className="text-gray-400">vs</div>
-                          <div className="flex items-center gap-1">
+                          <div className="text-gray-400 text-xs">vs</div>
+                          <div className="flex items-center gap-1 flex-1">
                             <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center">
-                              🏛️
+                              <Building2 size={12} className="text-gray-600" />
                             </div>
-                            <div>
-                              <div className="font-medium text-gray-800">
+                            <div className="min-w-0">
+                              <div className="font-medium text-gray-800 text-xs truncate">
                                 {comp.name2}
                               </div>
-                              <div className="text-blue-500">
+                              <div className="text-blue-500 text-xs">
                                 {comp.course2}
                               </div>
                             </div>
@@ -312,11 +325,11 @@ const ExplorePrograms = () => {
 
                   {/* Exam Types */}
                   {card.examTypes && (
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1">
                       {card.examTypes.slice(0, 6).map((exam, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-white/80 text-gray-700 text-xs font-medium rounded-full border border-gray-200"
+                          className="px-2 py-1 bg-white/80 text-gray-700 text-xs font-medium rounded-full border border-gray-200"
                         >
                           {exam}
                         </span>
@@ -330,7 +343,7 @@ const ExplorePrograms = () => {
                       {card.predictorTypes.map((type, index) => (
                         <div
                           key={index}
-                          className="text-sm font-medium text-gray-700"
+                          className="text-sm font-medium text-gray-700 p-2 bg-white/60 rounded-lg"
                         >
                           {type}
                         </div>
@@ -340,13 +353,15 @@ const ExplorePrograms = () => {
 
                   {/* Course Stats */}
                   {card.courseStats && (
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 gap-2">
                       {card.courseStats.map((course, index) => (
-                        <div key={index} className="text-sm">
+                        <div
+                          key={index}
+                          className="text-sm p-2 bg-white/60 rounded-lg flex justify-between"
+                        >
                           <span className="text-gray-700">{course.name}</span>
                           <span className="font-semibold text-gray-800">
-                            {" "}
-                            - {course.count}
+                            {course.count}
                           </span>
                         </div>
                       ))}
@@ -356,8 +371,8 @@ const ExplorePrograms = () => {
 
                 {/* Footer Link */}
                 <div className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors cursor-pointer">
-                  <span>{card.link}</span>
-                  <ChevronRight size={16} className="ml-1" />
+                  <span className="flex-1">{card.link}</span>
+                  <ChevronRight size={16} className="ml-1 flex-shrink-0" />
                 </div>
               </div>
             );
